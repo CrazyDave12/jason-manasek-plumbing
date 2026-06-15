@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --navy: #0A0F1E;
     --navy-mid: #111827;
@@ -22,617 +21,131 @@
     --gray: #8A8FA0;
     --gray-light: #C8CAD0;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--navy);
-    color: var(--off-white);
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+  body { background: var(--navy); color: var(--off-white); font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.6; overflow-x: hidden; }
 
   /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 4rem;
-    background: rgba(10, 15, 30, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-    transition: padding 0.3s ease;
-  }
-
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: 0.02em;
-    text-decoration: none;
-  }
-
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 4rem; background: rgba(10,15,30,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.15); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--white); letter-spacing: 0.02em; text-decoration: none; }
   .nav-logo span { color: var(--gold); }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--gray-light);
-    text-decoration: none;
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: var(--gray-light); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold); }
-
-  .nav-cta {
-    background: var(--gold);
-    color: var(--navy) !important;
-    padding: 0.55rem 1.4rem;
-    font-weight: 600 !important;
-    letter-spacing: 0.08em !important;
-    transition: background 0.2s !important;
-  }
-
+  .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 0.55rem 1.4rem; font-weight: 600 !important; }
   .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding: 8rem 4rem 5rem;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(26,37,64,0.8) 0%, transparent 60%);
-  }
-
-  /* Blueprint grid overlay */
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    opacity: 0.035;
-    background-image:
-      linear-gradient(var(--gold) 1px, transparent 1px),
-      linear-gradient(90deg, var(--gold) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  /* Decorative pipe motif top-right */
-  .hero-pipe {
-    position: absolute;
-    right: 6rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 380px;
-    height: 380px;
-    opacity: 0.07;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 720px;
-    animation: fadeUp 0.9s ease both;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 36px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 6.5vw, 5.5rem);
-    font-weight: 900;
-    line-height: 1.02;
-    color: var(--white);
-    margin-bottom: 0.4rem;
-    letter-spacing: -0.01em;
-  }
-
+  .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 8rem 4rem 5rem; }
+  .hero-photo { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&fit=crop') center center / cover no-repeat; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(10,15,30,0.97) 40%, rgba(10,15,30,0.7) 70%, rgba(10,15,30,0.4) 100%); }
+  .hero-grid { position: absolute; inset: 0; opacity: 0.025; background-image: linear-gradient(var(--gold) 1px, transparent 1px), linear-gradient(90deg, var(--gold) 1px, transparent 1px); background-size: 48px 48px; }
+  .hero-content { position: relative; z-index: 2; max-width: 700px; animation: fadeUp 0.9s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.5rem; }
+  .hero-eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--gold); }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6.5vw, 5.5rem); font-weight: 900; line-height: 1.02; color: var(--white); margin-bottom: 0.4rem; letter-spacing: -0.01em; }
   .hero h1 .gold { color: var(--gold); }
-
-  .hero-sub {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 2rem;
-  }
-
-  .hero-desc {
-    font-size: 1.05rem;
-    color: var(--gray-light);
-    line-height: 1.75;
-    max-width: 520px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-rating {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    background: rgba(201,168,76,0.08);
-    border: 1px solid rgba(201,168,76,0.25);
-    padding: 0.75rem 1.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .rating-stars {
-    color: var(--gold);
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
-  }
-
-  .rating-text {
-    font-size: 0.85rem;
-    color: var(--off-white);
-  }
-
-  .rating-text strong {
-    color: var(--white);
-    font-weight: 600;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: var(--gold);
-    color: var(--navy);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    transition: background 0.2s, transform 0.15s;
-  }
-
+  .hero-sub { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 2rem; }
+  .hero-desc { font-size: 1.05rem; color: var(--gray-light); line-height: 1.75; max-width: 520px; margin-bottom: 2.5rem; }
+  .hero-rating { display: inline-flex; align-items: center; gap: 1rem; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); padding: 0.75rem 1.5rem; margin-bottom: 2.5rem; }
+  .rating-stars { color: var(--gold); font-size: 1.1rem; }
+  .rating-text { font-size: 0.85rem; color: var(--off-white); }
+  .rating-text strong { color: var(--white); font-weight: 600; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--gold); color: var(--navy); text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2rem; transition: background 0.2s, transform 0.15s; }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: transparent;
-    color: var(--off-white);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: border-color 0.2s, color 0.2s;
-  }
-
+  .btn-secondary { display: inline-flex; align-items: center; gap: 0.6rem; background: transparent; color: var(--off-white); text-decoration: none; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2rem; border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
   .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
 
   /* TRUST BAR */
-  .trust-bar {
-    background: var(--navy-light);
-    border-top: 1px solid rgba(201,168,76,0.15);
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-    padding: 1.25rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gray-light);
-    font-weight: 500;
-  }
-
+  .trust-bar { background: var(--navy-light); border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 1.25rem 4rem; display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-light); font-weight: 500; }
   .trust-item svg { color: var(--gold); flex-shrink: 0; }
+  .trust-divider { width: 1px; height: 20px; background: rgba(201,168,76,0.2); }
 
-  .trust-divider {
-    width: 1px;
-    height: 20px;
-    background: rgba(201,168,76,0.2);
-  }
+  /* SECTION BASICS */
+  .section-label { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 1.25rem; }
+  .section-body { color: var(--gray-light); font-size: 1rem; line-height: 1.8; max-width: 580px; }
 
-  /* SECTIONS */
-  section { padding: 6rem 4rem; }
-
-  .section-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 1.25rem;
-  }
-
-  .section-body {
-    color: var(--gray-light);
-    font-size: 1rem;
-    line-height: 1.8;
-    max-width: 580px;
-  }
+  /* PHOTO STRIP between hero and services */
+  .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); height: 260px; }
+  .photo-strip-item { overflow: hidden; position: relative; }
+  .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.7) saturate(0.85); transition: transform 0.5s ease, filter 0.4s; }
+  .photo-strip-item:hover img { transform: scale(1.05); filter: brightness(0.85) saturate(1); }
+  .photo-strip-item .strip-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(10,15,30,0.85)); padding: 1.5rem 1.25rem 0.85rem; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
 
   /* SERVICES */
-  .services { background: var(--navy-mid); }
-
-  .services-header {
-    text-align: center;
-    margin-bottom: 3.5rem;
-  }
-
+  .services { background: var(--navy-mid); padding: 6rem 4rem; }
+  .services-header { text-align: center; margin-bottom: 3.5rem; }
   .services-header .section-label { justify-content: center; }
   .services-header .section-label::before { display: none; }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5px;
-    background: rgba(201,168,76,0.12);
-    border: 1.5px solid rgba(201,168,76,0.12);
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .service-card {
-    background: var(--navy-mid);
-    padding: 2.25rem 2rem;
-    transition: background 0.25s;
-    cursor: default;
-  }
-
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5px; background: rgba(201,168,76,0.12); border: 1.5px solid rgba(201,168,76,0.12); max-width: 1100px; margin: 0 auto; }
+  .service-card { background: var(--navy-mid); padding: 2.25rem 2rem; transition: background 0.25s; }
   .service-card:hover { background: var(--navy-light); }
+  .service-icon { width: 44px; height: 44px; border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; color: var(--gold); }
+  .service-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; }
+  .service-desc { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
 
-  .service-icon {
-    width: 44px;
-    height: 44px;
-    border: 1px solid rgba(201,168,76,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.25rem;
-    color: var(--gold);
-  }
+  /* PHOTO + TEXT SPLIT */
+  .split-section { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; }
+  .split-photo { position: relative; overflow: hidden; }
+  .split-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.65) saturate(0.8); }
+  .split-photo-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, var(--navy) 100%); }
+  .split-content { background: var(--navy); padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
 
-  .service-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 0.6rem;
-  }
-
-  .service-desc {
-    font-size: 0.88rem;
-    color: var(--gray);
-    line-height: 1.65;
-  }
-
-  /* WHY US */
-  .why {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .why-visual {
-    position: relative;
-  }
-
-  .why-stat-block {
-    background: var(--navy-light);
-    border: 1px solid rgba(201,168,76,0.2);
-    padding: 2.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
+  /* WHY / STATS */
+  .why-section { background: var(--navy); padding: 6rem 4rem; }
+  .why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+  .why-stat-block { background: var(--navy-light); border: 1px solid rgba(201,168,76,0.2); padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; position: relative; }
+  .stat-divider-v { position: absolute; top: 2.5rem; bottom: 2.5rem; left: 50%; width: 1px; background: rgba(201,168,76,0.15); }
   .stat-item { text-align: center; }
-
-  .stat-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.4rem;
-  }
-
-  .stat-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gray);
-    font-weight: 500;
-  }
-
-  .stat-divider-h {
-    grid-column: 1 / -1;
-    height: 1px;
-    background: rgba(201,168,76,0.15);
-  }
-
-  .stat-divider-v {
-    position: absolute;
-    top: 0; bottom: 0;
-    left: 50%;
-    width: 1px;
-    background: rgba(201,168,76,0.15);
-    pointer-events: none;
-  }
-
-  .why-badge {
-    position: absolute;
-    bottom: -1.5rem;
-    right: -1.5rem;
-    background: var(--gold);
-    color: var(--navy);
-    width: 100px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-weight: 700;
-  }
-
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+  .stat-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); font-weight: 500; }
+  .stat-divider-h { grid-column: 1 / -1; height: 1px; background: rgba(201,168,76,0.15); }
+  .why-badge { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--gold); color: var(--navy); width: 100px; height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-weight: 700; }
   .why-badge .big { font-size: 1.6rem; font-family: 'Playfair Display', serif; line-height: 1; }
-  .why-badge .small { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.2rem; }
-
+  .why-badge .small { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
   .why-points { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
-
-  .why-point {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .why-point-icon {
-    width: 36px;
-    height: 36px;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: var(--gold);
-    margin-top: 0.15rem;
-  }
-
-  .why-point-title {
-    font-weight: 600;
-    color: var(--white);
-    font-size: 0.95rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .why-point-text {
-    font-size: 0.88rem;
-    color: var(--gray);
-    line-height: 1.6;
-  }
+  .why-point { display: flex; gap: 1rem; align-items: flex-start; }
+  .why-point-icon { width: 36px; height: 36px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold); margin-top: 0.15rem; }
+  .why-point-title { font-weight: 600; color: var(--white); font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .why-point-text { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
 
   /* REVIEWS */
-  .reviews { background: var(--navy-mid); }
-
+  .reviews { background: var(--navy-mid); padding: 6rem 4rem; }
   .reviews-header { text-align: center; margin-bottom: 3.5rem; }
   .reviews-header .section-label { justify-content: center; }
   .reviews-header .section-label::before { display: none; }
-
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .review-card {
-    background: var(--navy);
-    border: 1px solid rgba(201,168,76,0.12);
-    padding: 2rem;
-    position: relative;
-    transition: border-color 0.2s;
-  }
-
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+  .review-card { background: var(--navy); border: 1px solid rgba(201,168,76,0.12); padding: 2rem; transition: border-color 0.2s; }
   .review-card:hover { border-color: rgba(201,168,76,0.35); }
-
-  .review-quote {
-    font-size: 3rem;
-    color: var(--gold);
-    opacity: 0.25;
-    font-family: 'Playfair Display', serif;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-
-  .review-text {
-    font-size: 0.92rem;
-    color: var(--gray-light);
-    line-height: 1.75;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
+  .review-quote { font-size: 3rem; color: var(--gold); opacity: 0.25; font-family: 'Playfair Display', serif; line-height: 1; margin-bottom: 0.5rem; }
+  .review-text { font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; margin-bottom: 1.5rem; font-style: italic; }
   .review-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.75rem; }
-
-  .review-author {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--white);
-    letter-spacing: 0.05em;
-  }
-
-  .review-source {
-    font-size: 0.72rem;
-    color: var(--gray);
-    margin-top: 0.15rem;
-  }
+  .review-author { font-size: 0.8rem; font-weight: 600; color: var(--white); }
+  .review-source { font-size: 0.72rem; color: var(--gray); margin-top: 0.15rem; }
 
   /* CTA */
-  .cta-section {
-    background: var(--navy-light);
-    border-top: 1px solid rgba(201,168,76,0.2);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    text-align: center;
-    padding: 5rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 100% at 50% 100%, rgba(201,168,76,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
+  .cta-section { position: relative; text-align: center; padding: 7rem 4rem; overflow: hidden; }
+  .cta-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&q=80&fit=crop') center center / cover no-repeat; filter: brightness(0.18) saturate(0.5); }
+  .cta-overlay { position: absolute; inset: 0; background: rgba(10,15,30,0.7); }
+  .cta-content { position: relative; z-index: 2; }
   .cta-section .section-title { margin-bottom: 1rem; }
-  .cta-section .section-body { margin: 0 auto 2.5rem; text-align: center; }
-
-  .cta-phone {
-    display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900;
-    color: var(--gold);
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    transition: color 0.2s;
-  }
-
+  .cta-section .section-body { margin: 0 auto 2.5rem; }
+  .cta-phone { display: block; font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: var(--gold); text-decoration: none; margin-bottom: 0.5rem; transition: color 0.2s; }
   .cta-phone:hover { color: var(--gold-light); }
-
-  .cta-note {
-    font-size: 0.78rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 2.5rem;
-  }
+  .cta-note { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 2.5rem; }
 
   /* FOOTER */
-  footer {
-    background: #060A14;
-    padding: 3rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-  }
-
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--white);
-  }
-
+  footer { background: #060A14; padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
   .footer-logo span { color: var(--gold); }
+  .footer-info { font-size: 0.8rem; color: var(--gray); text-align: center; }
+  .footer-contact { font-size: 0.82rem; color: var(--gray-light); text-align: right; }
+  .footer-contact a { color: var(--gold); text-decoration: none; }
 
-  .footer-info {
-    font-size: 0.8rem;
-    color: var(--gray);
-    text-align: center;
-  }
-
-  .footer-contact {
-    font-size: 0.82rem;
-    color: var(--gray-light);
-    text-align: right;
-  }
-
-  .footer-contact a {
-    color: var(--gold);
-    text-decoration: none;
-  }
-
-  /* SVG icons helper */
   .icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   .icon-sm { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -640,14 +153,22 @@
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero { padding: 7rem 1.5rem 4rem; }
-    section { padding: 4rem 1.5rem; }
     .trust-bar { padding: 1rem 1.5rem; gap: 1.5rem; }
     .trust-divider { display: none; }
-    .why { grid-template-columns: 1fr; gap: 3rem; }
+    .photo-strip { grid-template-columns: 1fr; height: auto; }
+    .photo-strip-item { height: 200px; }
+    .services { padding: 4rem 1.5rem; }
+    .split-section { grid-template-columns: 1fr; }
+    .split-photo { height: 300px; }
+    .split-photo-overlay { background: linear-gradient(transparent 50%, var(--navy) 100%); }
+    .split-content { padding: 3rem 1.5rem; }
+    .why-section { padding: 4rem 1.5rem; }
+    .why-inner { grid-template-columns: 1fr; gap: 3rem; }
     .why-badge { right: 0; }
+    .reviews { padding: 4rem 1.5rem; }
+    .cta-section { padding: 5rem 1.5rem; }
     footer { flex-direction: column; text-align: center; padding: 2.5rem 1.5rem; }
     .footer-contact { text-align: center; }
-    .cta-section { padding: 4rem 1.5rem; }
   }
 </style>
 </head>
@@ -664,23 +185,11 @@
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- HERO with photo background -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
+  <div class="hero-photo"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-grid"></div>
-
-  <!-- Decorative SVG pipe motif -->
-  <svg class="hero-pipe" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="150" cy="150" r="120" stroke="#C9A84C" stroke-width="1.5"/>
-    <circle cx="150" cy="150" r="80" stroke="#C9A84C" stroke-width="1"/>
-    <circle cx="150" cy="150" r="40" stroke="#C9A84C" stroke-width="1.5"/>
-    <line x1="150" y1="0" x2="150" y2="300" stroke="#C9A84C" stroke-width="0.75"/>
-    <line x1="0" y1="150" x2="300" y2="150" stroke="#C9A84C" stroke-width="0.75"/>
-    <line x1="30" y1="30" x2="270" y2="270" stroke="#C9A84C" stroke-width="0.5"/>
-    <line x1="270" y1="30" x2="30" y2="270" stroke="#C9A84C" stroke-width="0.5"/>
-    <rect x="130" y="130" width="40" height="40" stroke="#C9A84C" stroke-width="1.5"/>
-  </svg>
-
   <div class="hero-content">
     <div class="hero-eyebrow">Blakely, Pennsylvania · Est. Family Owned</div>
     <h1>Plumbing &amp;<br><span class="gold">Heating</span><br>Done Right.</h1>
@@ -725,6 +234,22 @@
   <div class="trust-item">
     <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
     No Job Too Small
+  </div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=600&q=80&fit=crop" alt="Plumbing pipe work" loading="lazy">
+    <div class="strip-label">Pipe &amp; Drain Work</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80&fit=crop" alt="Heating system" loading="lazy">
+    <div class="strip-label">Heating Systems</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&fit=crop" alt="Water heater installation" loading="lazy">
+    <div class="strip-label">Water Heaters</div>
   </div>
 </div>
 
@@ -781,68 +306,67 @@
   </div>
 </section>
 
-<!-- WHY US -->
-<section id="about" style="background: var(--navy); padding: 6rem 4rem;">
-  <div class="why" style="max-width:1100px; margin: 0 auto;">
-    <div class="why-visual">
-      <div class="why-stat-block" style="position:relative;">
-        <div class="stat-divider-v"></div>
-        <div class="stat-item">
-          <div class="stat-number">4.9</div>
-          <div class="stat-label">Google Rating</div>
+<!-- PHOTO SPLIT — About -->
+<div class="split-section" id="about">
+  <div class="split-photo">
+    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80&fit=crop" alt="Plumber working on pipes" loading="lazy">
+    <div class="split-photo-overlay"></div>
+  </div>
+  <div class="split-content">
+    <div class="section-label">About Jason</div>
+    <h2 class="section-title">Old-School Work Ethic.<br>Modern Results.</h2>
+    <p class="section-body">Jason built this business on the belief that a handshake means something. You get a real person on the phone, a straight answer on the price, and a tradesman who treats your home like his own.</p>
+    <div class="why-points" style="margin-top: 2rem;">
+      <div class="why-point">
+        <div class="why-point-icon">
+          <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">194</div>
-          <div class="stat-label">Reviews</div>
-        </div>
-        <div class="stat-divider-h"></div>
-        <div class="stat-item">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">Available</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Local</div>
+        <div>
+          <div class="why-point-title">Upfront pricing — no surprises</div>
+          <p class="why-point-text">You'll know what it costs before we start. No hidden fees, ever.</p>
         </div>
       </div>
-      <div class="why-badge">
-        <span class="big">★</span>
-        <span class="small">Top Rated<br>Blakely PA</span>
+      <div class="why-point">
+        <div class="why-point-icon">
+          <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <div class="why-point-title">Family-owned, community-rooted</div>
+          <p class="why-point-text">We live here. We work here. Your neighbors are our neighbors.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-icon">
+          <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <div class="why-point-title">Fast response, every time</div>
+          <p class="why-point-text">Emergencies don't wait for business hours. Neither do we.</p>
+        </div>
       </div>
     </div>
-    <div class="why-text">
-      <div class="section-label">Why Manasek</div>
-      <h2 class="section-title">Old-School Work Ethic.<br>Modern Results.</h2>
-      <p class="section-body">Jason built this business on the belief that a handshake means something. You get a real person on the phone, a straight answer on the price, and a tradesman who treats your home like his own.</p>
-      <div class="why-points">
-        <div class="why-point">
-          <div class="why-point-icon">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <div class="why-point-title">Upfront pricing — no surprises</div>
-            <p class="why-point-text">You'll know what it costs before we start. We don't add fees after the fact.</p>
-          </div>
-        </div>
-        <div class="why-point">
-          <div class="why-point-icon">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <div class="why-point-title">Family-owned, community-rooted</div>
-            <p class="why-point-text">We live here. We work here. Your neighbors are our neighbors.</p>
-          </div>
-        </div>
-        <div class="why-point">
-          <div class="why-point-icon">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <div class="why-point-title">Fast response, every time</div>
-            <p class="why-point-text">Emergencies don't wait for business hours. Neither do we.</p>
-          </div>
-        </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="why-section">
+  <div class="why-inner">
+    <div style="position:relative;">
+      <div class="why-stat-block">
+        <div class="stat-divider-v"></div>
+        <div class="stat-item"><div class="stat-number">4.9</div><div class="stat-label">Google Rating</div></div>
+        <div class="stat-item"><div class="stat-number">194</div><div class="stat-label">Reviews</div></div>
+        <div class="stat-divider-h"></div>
+        <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Available</div></div>
+        <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Local</div></div>
       </div>
+      <div class="why-badge"><span class="big">★</span><span class="small">Top Rated<br>Blakely PA</span></div>
+    </div>
+    <div>
+      <div class="section-label">By the Numbers</div>
+      <h2 class="section-title">Northeastern PA's Most Trusted Plumber.</h2>
+      <p class="section-body">Nearly 200 five-star reviews don't happen by accident. They happen because we show up on time, do the work right, and charge a fair price. Every single time.</p>
+      <a href="tel:5706043555" class="btn-primary" style="display:inline-flex; margin-top: 2rem;">Call for a Free Estimate</a>
     </div>
   </div>
 </section>
@@ -876,34 +400,28 @@
       <div class="review-source">Google Review · Blakely, PA</div>
     </div>
   </div>
-  <p style="text-align:center; margin-top: 2.5rem; font-size:0.82rem; color: var(--gray);">
-    Based on <strong style="color:var(--gold);">194 reviews</strong> on Google · Average rating 4.9 / 5.0
-  </p>
+  <p style="text-align:center; margin-top: 2.5rem; font-size:0.82rem; color: var(--gray);">Based on <strong style="color:var(--gold);">194 reviews</strong> on Google · Average rating 4.9 / 5.0</p>
 </section>
 
-<!-- CTA -->
+<!-- CTA with photo background -->
 <section class="cta-section" id="contact">
-  <div class="section-label" style="justify-content:center;">
-    <span>Ready to Get Started?</span>
+  <div class="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <div class="section-label" style="justify-content:center;">Ready to Get Started?</div>
+    <h2 class="section-title">Emergency or Estimate —<br>We Pick Up.</h2>
+    <p class="section-body" style="margin: 0 auto 2rem; text-align:center;">Don't wait. Whether your furnace quit at midnight or you need a quote on a remodel, call us now and talk to a real person.</p>
+    <a href="tel:5706043555" class="cta-phone">(570) 604-3555</a>
+    <p class="cta-note">Available 24 hours · 7 days a week · Blakely, PA &amp; surrounding areas</p>
+    <a href="tel:5706043555" class="btn-primary" style="display:inline-flex;">Call Jason Now</a>
   </div>
-  <h2 class="section-title">Emergency or Estimate —<br>We Pick Up.</h2>
-  <p class="section-body">Don't wait. Whether your furnace quit at midnight or you need a quote on a remodel, call us now and talk to a real person.</p>
-  <a href="tel:5706043555" class="cta-phone">(570) 604-3555</a>
-  <p class="cta-note">Available 24 hours · 7 days a week · Blakely, PA &amp; surrounding areas</p>
-  <a href="tel:5706043555" class="btn-primary" style="display:inline-flex;">Call Jason Now</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Jason Manasek <span>Plumbing &amp; Heating</span></div>
-  <div class="footer-info">
-    131 6th St, Blakely, PA 18447<br>
-    <span style="color: var(--gray); font-size:0.72rem;">© 2026 Jason Manasek Plumbing &amp; Heating. All rights reserved.</span>
-  </div>
-  <div class="footer-contact">
-    <a href="tel:5706043555">(570) 604-3555</a><br>
-    <span>24/7 Emergency Line</span>
-  </div>
+  <div class="footer-info">131 6th St, Blakely, PA 18447<br><span style="color:var(--gray);font-size:0.72rem;">© 2026 Jason Manasek Plumbing &amp; Heating. All rights reserved.</span></div>
+  <div class="footer-contact"><a href="tel:5706043555">(570) 604-3555</a><br><span>24/7 Emergency Line</span></div>
 </footer>
 
 </body>
